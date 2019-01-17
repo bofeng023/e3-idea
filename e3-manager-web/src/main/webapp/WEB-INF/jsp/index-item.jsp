@@ -8,7 +8,7 @@
 			if(data.status == 200){
 				$.messager.alert('提示','导入索引库成功！');
 			} else {
-				$.messager.alert('提示','导入索引库失败！');
+				$.messager.alert('提示',data.msg);
 			}
 		});
 	}

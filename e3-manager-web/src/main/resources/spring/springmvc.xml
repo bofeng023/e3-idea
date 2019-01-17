@@ -34,8 +34,9 @@
 	<!-- 引用dubbo服务 -->
 	<dubbo:application name="e3-manager-web"/>
 	<dubbo:registry protocol="zookeeper" address="39.106.171.57:2181"/>	
-	<dubbo:reference interface="cn.e3mall.service.ItemService" id="itemService" />
-	<dubbo:reference interface="cn.e3mall.service.ItemCatService" id="itemCatService" />
+	<dubbo:reference interface="cn.e3mall.service.ItemService" id="itemService" timeout="600000"/>
+	<dubbo:reference interface="cn.e3mall.service.ItemCatService" id="itemCatService" timeout="600000"/>
 	<dubbo:reference interface="cn.e3mall.content.service.ContentCatService" id="contentCatService" timeout="600000"/>
 	<dubbo:reference interface="cn.e3mall.content.service.ContentService" id="contentService" timeout="600000"/>
+	<dubbo:reference interface="cn.e3mall.search.service.SearchItemService" id="searchItemService" timeout="600000"/>
 </beans>

@@ -23,5 +23,5 @@
 	<!-- 引用dubbo服务 -->
 	<dubbo:application name="e3-portal-web"/>
 	<dubbo:registry protocol="zookeeper" address="39.106.171.57:2181"/>	
-	<dubbo:reference interface="cn.e3mall.content.service.ContentService" id="contentService" />
+	<dubbo:reference interface="cn.e3mall.content.service.ContentService" id="contentService" timeout="60000" />
 </beans>

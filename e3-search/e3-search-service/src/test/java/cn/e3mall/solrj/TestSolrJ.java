@@ -34,7 +34,7 @@ public class TestSolrJ {
     @Test
     public void deleteDocumentById() throws Exception{
         SolrServer solrServer = new HttpSolrServer("http://39.106.171.57:8080/solr");
-        solrServer.deleteById("test001");
+        solrServer.deleteById("test003");
         solrServer.commit();
     }
 
