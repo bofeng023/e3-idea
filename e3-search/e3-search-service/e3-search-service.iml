@@ -21,6 +21,7 @@
           <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-dao.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-service.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-solr.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-activemq.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -99,6 +100,7 @@
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpmime:4.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.woodstox:wstx-asl:3.2.7" level="project" />
     <orderEntry type="library" name="Maven: org.noggit:noggit:0.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.activemq:activemq-all:5.11.2" level="project" />
     <orderEntry type="module" module-name="e3-common" />
     <orderEntry type="library" name="Maven: joda-time:joda-time:2.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.3.2" level="project" />
