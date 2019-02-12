@@ -1,8 +1,10 @@
 package cn.e3mall.service.impl;
 
+import cn.e3mall.common.jedis.JedisClient;
 import cn.e3mall.common.pojo.E3Result;
 import cn.e3mall.common.pojo.EasyUIDataGridResult;
 import cn.e3mall.common.utils.IDUtils;
+import cn.e3mall.common.utils.JsonUtils;
 import cn.e3mall.mapper.TbItemDescMapper;
 import cn.e3mall.mapper.TbItemMapper;
 import cn.e3mall.pojo.TbItem;
@@ -11,7 +13,9 @@ import cn.e3mall.pojo.TbItemExample;
 import cn.e3mall.service.ItemService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -30,9 +34,36 @@ public class ItemServiceImpl implements ItemService {
     private TbItemMapper itemMapper;
     @Autowired
     private TbItemDescMapper itemDescMapper;
+    @Autowired
+    private JedisClient jedisClient;
+
+    private String ITEM_INFO = "ITEM_INFO";
+
+    @Value("${ITEM_INFO_EXPIRE}")
+    private Integer ITEM_INFO_EXPIRE;
 
     public TbItem getItemById(Long itemId) {
-        return itemMapper.selectByPrimaryKey(itemId);
+        //查询缓存.不应影响正常业务,放在try内
+        try {
+            String json = jedisClient.get(ITEM_INFO + ":" + itemId + ":BASE");
+            if (StringUtils.isNotBlank(json)) {
+                TbItem tbItem = JsonUtils.jsonToPojo(json, TbItem.class);
+                return tbItem;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        TbItem tbItem = itemMapper.selectByPrimaryKey(itemId);
+        //添加缓存.不应影响正常业务,放在try内
+        try {
+            if (tbItem != null) {
+                jedisClient.set(ITEM_INFO + ":" + itemId + ":BASE", JsonUtils.objectToJson(tbItem));
+                jedisClient.expire(ITEM_INFO + ":" + itemId + ":BASE", ITEM_INFO_EXPIRE);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return tbItem;
     }
 
     public EasyUIDataGridResult getItemList(int page, int rows) {
@@ -63,7 +94,7 @@ public class ItemServiceImpl implements ItemService {
         itemDesc.setUpdated(date);
         itemDescMapper.insert(itemDesc);
         String id = itemId + "";
-        return E3Result.build(200,"OK",id);
+        return E3Result.build(200, "OK", id);
     }
 
     public E3Result showItemDesc(Long itemId) {
@@ -130,20 +161,35 @@ public class ItemServiceImpl implements ItemService {
 
     //删除商品
     public E3Result deleteItem(String ids) {
-        if (ids.indexOf(",") == -1) {
-            itemMapper.deleteByPrimaryKey(Long.parseLong(ids));
-        } else {
-            String[] split = ids.split(",");
-            for (String itemId : split) {
-                itemMapper.deleteByPrimaryKey(Long.parseLong(itemId));
-            }
+        String[] split = ids.split(",");
+        for (String itemId : split) {
+            itemMapper.deleteByPrimaryKey(Long.parseLong(itemId));
         }
         return E3Result.ok();
     }
 
     //根据id查商品详情
     public TbItemDesc getItemDescById(Long itemId) {
+        //查询缓存.不应影响正常业务,放在try内
+        try {
+            String json = jedisClient.get(ITEM_INFO + ":" + itemId + ":DESC");
+            if (StringUtils.isNotBlank(json)) {
+                TbItemDesc tbItemDesc = JsonUtils.jsonToPojo(json, TbItemDesc.class);
+                return tbItemDesc;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         TbItemDesc tbItemDesc = itemDescMapper.selectByPrimaryKey(itemId);
+        //添加缓存.不应影响正常业务,放在try内
+        try {
+            if (tbItemDesc != null) {
+                jedisClient.set(ITEM_INFO + ":" + itemId + ":DESC", JsonUtils.objectToJson(tbItemDesc));
+                jedisClient.expire(ITEM_INFO + ":" + itemId + ":DESC", ITEM_INFO_EXPIRE);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return tbItemDesc;
     }
 }
