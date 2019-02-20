@@ -46,7 +46,7 @@ public class ItemController {
         return itemService.getItemList(page, rows);
     }
 
-    //添加商品
+    //添加商品（同步索引库）
     @RequestMapping(value = "/item/save", method = RequestMethod.POST)
     @ResponseBody
     public E3Result addItem(TbItem item, String desc) {
