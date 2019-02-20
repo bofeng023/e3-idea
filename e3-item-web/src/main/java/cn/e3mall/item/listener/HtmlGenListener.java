@@ -45,7 +45,7 @@ public class HtmlGenListener implements MessageListener {
             Template template = configuration.getTemplate("item.ftl");
             Map dataModel = new HashMap<>();
             dataModel.put("item", item);
-            dataModel.put("ItemDesc", tbItemDesc);
+            dataModel.put("itemDesc", tbItemDesc);
             Writer out = new FileWriter(HTML_GEN_PATH + text + ".html");
             template.process(dataModel,out);
             out.close();
