@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="e3-portal-web:war">
+    <output-path>$PROJECT_DIR$/e3-portal-web/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>e3-portal-web</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="e3-portal-web.war">
+      <element id="artifact" artifact-name="e3-portal-web:war exploded" />
+    </root>
+  </artifact>
+</component>

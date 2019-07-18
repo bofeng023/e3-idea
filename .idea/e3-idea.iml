@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="Web">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/e3-manager-web/src/main/webapp/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/e3-manager-web/src/main/webapp" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web2">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/e3-item-web/src/main/webapp/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/e3-item-web/src/main/webapp" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web3">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/e3-search/e3-search-service/src/main/webapp/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/e3-search/e3-search-service/src/main/webapp" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web4">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/e3-search-web/src/main/webapp/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/e3-search-web/src/main/webapp" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web5">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/e3-manager/e3-manager-service/src/main/webapp/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/e3-manager/e3-manager-service/src/main/webapp" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web6">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/e3-portal-web/src/main/webapp/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/e3-portal-web/src/main/webapp" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web7">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/e3-content/e3-content-service/src/main/webapp/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/e3-content/e3-content-service/src/main/webapp" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="ApplicationContext Freemarker" removed="false">
+          <file>file://$MODULE_DIR$/e3-item-web/src/main/resources/spring/applicationContext-freemarker.xml</file>
+          <file>file://$MODULE_DIR$/e3-search/e3-search-service/src/main/resources/spring/applicationContext-activemq.xml</file>
+          <file>file://$MODULE_DIR$/e3-manager-web/src/main/resources/spring/applicationContext-activemq.xml</file>
+          <file>file://$MODULE_DIR$/e3-manager/e3-manager-service/src/main/resources/spring/applicationContext-activemq.xml</file>
+          <file>file://$MODULE_DIR$/e3-content/e3-content-service/src/main/resources/spring/applicationContext-dao.xml</file>
+          <file>file://$MODULE_DIR$/e3-search/e3-search-service/src/main/resources/spring/applicationContext-dao.xml</file>
+          <file>file://$MODULE_DIR$/e3-manager/e3-manager-service/src/main/resources/spring/applicationContext-dao.xml</file>
+          <file>file://$MODULE_DIR$/e3-content/e3-content-service/src/main/resources/spring/applicationContext-redis.xml</file>
+          <file>file://$MODULE_DIR$/e3-manager/e3-manager-service/src/main/resources/spring/applicationContext-redis.xml</file>
+          <file>file://$MODULE_DIR$/e3-manager/e3-manager-service/src/main/resources/spring/applicationContext-service.xml</file>
+          <file>file://$MODULE_DIR$/e3-search/e3-search-service/src/main/resources/spring/applicationContext-service.xml</file>
+          <file>file://$MODULE_DIR$/e3-content/e3-content-service/src/main/resources/spring/applicationContext-service.xml</file>
+          <file>file://$MODULE_DIR$/e3-search/e3-search-service/src/main/resources/spring/applicationContext-solr.xml</file>
+          <file>file://$MODULE_DIR$/e3-manager/e3-manager-service/src/main/resources/spring/applicationContext-trans.xml</file>
+          <file>file://$MODULE_DIR$/e3-content/e3-content-service/src/main/resources/spring/applicationContext-trans.xml</file>
+          <file>file://$MODULE_DIR$/e3-search-web/src/main/resources/spring/springmvc.xml</file>
+          <file>file://$MODULE_DIR$/e3-item-web/src/main/resources/spring/springmvc.xml</file>
+          <file>file://$MODULE_DIR$/e3-portal-web/src/main/resources/spring/springmvc.xml</file>
+          <file>file://$MODULE_DIR$/e3-manager-web/src/main/resources/spring/springmvc.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

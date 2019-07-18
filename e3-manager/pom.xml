@@ -24,6 +24,9 @@
                 <configuration>
                     <path>/</path>
                     <port>8080</port>
+                    <url>http://39.106.171.57:8080/manager/text</url>
+                    <username>tomcat</username>
+                    <password>WYX*wyx123</password>
                 </configuration>
             </plugin>
         </plugins>
